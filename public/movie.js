@@ -1,19 +1,21 @@
-function Song(title, artist, duration) {
+function Movie(title, year, duration) {
   Media.call(this, title, duration);
-  this.artist = artist;
+  this.year = year;
 }
 
-Song.prototype = Object.create(Media.prototype);
+Movie.prototype = Object.create(Media.prototype);
 
-Song.prototype.toHTML = function() {
+
+Movie.prototype.toHTML = function() {
   var songHTML = '<li';
   if (this.isPlaying) {
     songHTML += ' class="current"';
   }
   songHTML += '>';
   songHTML += this.title;
-  songHTML += ' - ';
-  songHTML += this.artist;
+  songHTML += '  (';
+  songHTML += this.year;
+  songHTML += ') ';
   songHTML += '<span class="duration">';
   songHTML += this.duration;
   songHTML += '</span></li>';
